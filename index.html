@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TIESFILM</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            z-index: 1000;
+            height: 100px;
+            overflow: hidden;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>TIESFILM</h1>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        // The following example creates a marker in Stockholm, Sweden using a DROP
+            // animation. Clicking on the marker will toggle the animation between a BOUNCE
+            // animation and no animation.
+
+           
+        var marker;
+
+           
+        function initMap() {    
+            var map = new google.maps.Map(document.getElementById('map'), {     
+                zoom: 16,
+                     center: {
+                    lat: 55.733200,
+                    lng: 37.6533941
+                }    
+            });
+
+                
+            marker = new google.maps.Marker({     
+                map: map,
+                draggable: true,
+                     animation: google.maps.Animation.DROP,
+                     position: {
+                    lat: 55.733200,
+                    lng: 37.6533941
+                }    
+            });      
+            var content = document.createElement('div');
+            content.innerHTML = "<strong>TIESFILM</strong><br><p>Новоспасский переулок дом 7</p>";
+            var infowindow = new google.maps.InfoWindow({ 
+                content: content
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {  
+                infowindow.open(map, marker);
+            });
+
+        }
+
+           
+        function toggleBounce() {    
+            if (marker.getAnimation() !== null) {     
+                marker.setAnimation(null);    
+            } else {     
+                marker.setAnimation(google.maps.Animation.BOUNCE);    
+            }   
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8FYTKnPIEI7g91lY1Qx1sERDiWYchbbg&callback=initMap">
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>
