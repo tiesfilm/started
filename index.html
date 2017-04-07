@@ -33,14 +33,17 @@
             height: 100px;
             overflow: hidden;
             text-align: center;
-            line-height: 60px;
+        }
+        
+        img {
+            margin-top: 25px;
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <h1>TIESFILM</h1>
+        <img src="./img/вввв.jpg" alt="">
     </div>
     <div id="map"></div>
 
@@ -71,9 +74,9 @@
                     lat: 55.733200,
                     lng: 37.6533941
                 }    
-            });      
+            }, 5000);      
             var content = document.createElement('div');
-            content.innerHTML = "<strong>TIESFILM</strong><br><p>Новоспасский переулок дом 7</p>";
+            content.innerHTML = "<strong>CELLAR</strong><br><p>Новоспасский переулок дом 7</p>";
             var infowindow = new google.maps.InfoWindow({ 
                 content: content
             });
